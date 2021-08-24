@@ -1,7 +1,6 @@
 feature 'name space' do
   scenario 'should be able to name my space' do
     visit '/spaces/new'
-
     fill_in("name", with: 'Blessing Apartment')
     fill_in("des", with: 'Beautiful three bed house')
     fill_in("price", with: 500)
