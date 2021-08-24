@@ -6,7 +6,7 @@ feature 'Viewing spaces' do
 
     visit('/spaces')
     expect(page).to have_content('Blessing Apartment')
-    expect(page).to have_content('Beautiful three bed house')
+    expect(page).to have_content('Beautiful three bedroom house')
     # expect(page).to have_content(500)
   end
 end

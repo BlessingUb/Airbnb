@@ -1,7 +1,7 @@
 require 'pg'
 
 def persisted_data(id:)
-  connection = PG.connect(dbname: 'spaces_test')
-  result = connection.query("SELECT * FROM spaces WHERE id = #{id};")
+  connection = PG.connect(dbname: 'makersbnb_test')
+  result = connection.query("SELECT * FROM spaces WHERE space_id='#{id}';")
   result.first
 end

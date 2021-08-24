@@ -14,7 +14,7 @@ class Spaces
   def self.all
       result = DatabaseConnection.query("SELECT * FROM spaces")
       result.map do|space| 
-        Spaces.new(space['id'], space['name'], space['des'], space['price'])
+        Spaces.new(space['space_id'], space['name'], space['description'], space['price'])
       end
   end
 
@@ -22,16 +22,8 @@ class Spaces
   end
 
   def self.create(name:, des:, price:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'spaces_test')
-    else
-      connection = PG.connect(dbname: 'spaces')
-    end
-  
-    result = connection.exec("INSERT INTO spaces (name, des, price) 
-    VALUES('#{name}', '#{des}', '#{price}') RETURNING id, name, des, price;")
-    
-    Spaces.new(id: result[0]['id'], name: result[0]['name'],
-     des: result[0]['des'], price: result[0]['price'])
+    result = DatabaseConnection.query("INSERT INTO spaces (name, description, price) 
+    VALUES('#{name}', '#{des}', '#{price}') RETURNING space_id, name, description, price;")
+    Spaces.new(result[0]['space_id'], result[0]['name'], result[0]['description'], result[0]['price'])
   end 
 end

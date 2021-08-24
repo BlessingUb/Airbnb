@@ -1,5 +1,6 @@
 <ul>
   <% @spaces.each do |space| %>
-    <li><%= space['name'], space['des'], space['price']%></li>
+    <li><%= space.name %></li>
+    <li><%= space.des %></li>
   <% end %>
 </ul>
