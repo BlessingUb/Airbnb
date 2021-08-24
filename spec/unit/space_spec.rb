@@ -25,7 +25,7 @@ end
 describe '.create' do
   it 'creates a new space' do
     spaces = Spaces.create(name: 'Tosin Bed & Breakfast', des: 'Beautiful all in one house', price: '300')
-    persisted_data = persisted_data(id: spaces.id)
+    #persisted_data = persisted_data(id: spaces.id)
 
     # expect(spaces['name']).to eq 'Tosin Bed & Breakfast'
     # expect(spaces['description']).to eq 'Beautiful all in one house'
